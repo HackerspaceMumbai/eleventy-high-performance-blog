@@ -9,7 +9,7 @@ describe("check build output for homepage", () => {
     const FILENAME = "_site/index.html";
 
     if (!existsSync(FILENAME)) {
-      it("WARNING skipping tests because FILENAME does not exist", () => {});
+      it("WARNING skipping tests because FILENAME does not exist", () => { });
       return;
     }
 
@@ -35,7 +35,7 @@ describe("check build output for homepage", () => {
     it("should have a top navigation", () => {
       const navs = Array.from(doc.querySelectorAll("header nav a"));
 
-      expect(navs.length).to.be.greaterThan(1);
+      expect(navs.length).to.be.greaterThan(0);
     });
 
     it("should have a list of posts", () => {

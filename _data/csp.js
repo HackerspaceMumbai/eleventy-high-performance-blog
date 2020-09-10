@@ -25,6 +25,8 @@ const CSP = {
     ["style-src", quote("unsafe-inline")],
     // Images may also come from data-URIs.
     ["img-src", SELF, "data:"],
+
+    ["frame-src", "www.youtube.com"],
   ]),
 };
 
