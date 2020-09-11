@@ -24,7 +24,7 @@ const CSP = {
     // Inline CSS is allowed.
     ["style-src", quote("unsafe-inline")],
     // Images may also come from data-URIs.
-    ["img-src", SELF, "data:"],
+    ["img-src", SELF, "data:", "img.youtube.com"],
 
     ["frame-src", "www.youtube.com"],
   ]),

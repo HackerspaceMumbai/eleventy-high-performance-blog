@@ -52,14 +52,14 @@ Based on a few design heuristics, "I spy" the nebulous contours of at least two 
 
 Thanks to the good folks at [WPS](https://github.com/WPS), who have provided a Domain Storytelling [Modeller](https://www.wps.de/modeler/) to make our lives much easier, we have a short 20 second video of the Visage "story".
 
-<iframe name="DomainStoryTelling" width="100%" height="auto" src="https://www.youtube.com/embed/5vXRYps9_n8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe loading="lazy" name="DomainStoryTelling" width="100%" height="auto" src="https://www.youtube.com/embed/5vXRYps9_n8" srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/5vXRYps9_n8?autoplay=1><img src=https://img.youtube.com/vi/5vXRYps9_n8/hqdefault.jpg alt='Domain StoryTelling for Visage as part of Strategic DDD'><span>▶</span></a>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Domain StoryTelling for Visage as part of Strategic DDD"></iframe>
 
 One of the heuristic that is associated with Domain StoryTelling is that uni-directional flows are usually indicative of bounded contexts. This was quite revealing for now it shows that they are definitely three distinct bounded contexts.
 
-1.Scheduling
-2.Shortlisting
-The above two have been carved out from the earlier Event Management. While ruminating over the names [deja vu, I know], I had a look at Eventbrite's blade for event creation and found that they named it _Scheduling_. And truth be told, at a higher level, that's what it actually is. **To let DDD help you, you got to learn to keep your ego/biases aside.**
-3.CheckingIn
+1. Scheduling
+2. Shortlisting
+   The above two have been carved out from the earlier Event Management. While ruminating over the names [deja vu, I know], I had a look at Eventbrite's blade for event creation and found that they named it _Scheduling_. And truth be told, at a higher level, that's what it actually is. **To let DDD help you, you got to learn to keep your ego/biases aside.**
+3. CheckingIn
 
 ## Core Domains Charts
 
@@ -71,7 +71,7 @@ Now that we have our Bounded Contexts, lets see how they work with each other. M
 
 Next up we try to focus on each Bounded Context individually. [Nick Tune](https://medium.com/@ntcoding) & his buddies at [DDD Crew](https://github.com/ddd-crew) [go check out their GitHub organization for more DDD goodies] had come up with a modelling technique to approach a Bounded Context like a black box: see what goes in, what comes out and what gets processed. The canvases have been sketched out using [draw.io](https://drawio-app.com/)
 
-![Shortlisting Bounded Context Canvas](/img/blog/Shortlisting.svg)
+![Shortlisting Bounded Context Canvas](/img/blog/Shortlistingv4.png)
 
 Can you see the Core Domain Charts effect out here? Since Shortlisting is a core domain, it will be in a driving position with Scheduling, which is a Generic/Supporting domain, hence the former is the customer while the latter is a supplier. While with CheckingIn, which is also a core domain, it is treated on an equal footing. Don't overlook politics.
 
