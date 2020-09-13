@@ -55,7 +55,6 @@ const CleanCSS = require("clean-css");
 
 module.exports = function (eleventyConfig) {
 
-
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
