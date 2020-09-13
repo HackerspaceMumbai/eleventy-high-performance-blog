@@ -54,6 +54,8 @@ const localImages = require("./third_party/eleventy-plugin-local-images/.elevent
 const CleanCSS = require("clean-css");
 
 module.exports = function (eleventyConfig) {
+
+
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
@@ -176,6 +178,7 @@ module.exports = function (eleventyConfig) {
 
     // You can also pass this in on the command line using `--pathprefix`
     // pathPrefix: "/",
+    pathPrefix: "/blog/",
 
     markdownTemplateEngine: "liquid",
     htmlTemplateEngine: "njk",
