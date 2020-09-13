@@ -1,5 +1,5 @@
 [build]
-  publish = "blog/_site"
+  publish = "_site"
   base = "blog"
   # Allows overriding metadata.json via env var
 
