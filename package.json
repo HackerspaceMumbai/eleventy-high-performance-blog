@@ -7,10 +7,10 @@
     "build": "npm run js-build && eleventy && npm run test",
     "watch": "concurrently \"eleventy --serve\" \"npm run js-build-watch\" \"npm run test-watch\"",
     "serve": "eleventy --serve",
-    "js-build": "rollup -c rollup.config.js",
+    "js-build": "rollup -c ../rollup.config.js",
     "js-build-watch": "rollup -c rollup.config.js -w",
     "debug": "DEBUG=* eleventy && npm run test",
-    "test": "mocha test/test*.js",
+    "test": "mocha ../test/test*.js",
     "test-watch": "mocha test/test*.js --watch"
   },
   "pre-push": [
