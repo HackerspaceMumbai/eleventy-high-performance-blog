@@ -1,7 +1,8 @@
 [build]
-  publish = "_site"
+  publish = "blog/_site"
   base = "blog"
   # Allows overriding metadata.json via env var
+
   command = "[ \"$METADATA_JSON\" ] && echo $METADATA_JSON > _data/metadata.json; npm run build"
   functions = "functions/"
 
