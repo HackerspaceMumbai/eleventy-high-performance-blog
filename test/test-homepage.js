@@ -8,7 +8,7 @@ const pathPrefixes = require("../_11ty/pathPrefixUtilities")
 describe("check build output for homepage", () => {
   describe("homepage", () => {
 
-    const FILENAME = (pathPrefixes.hasPathPrefix()) ? `_site${pathprefixes.getPathPrefix()}/index.html` : "_site/index.html";
+    const FILENAME = "_site/index.html";
     console.log("FILENAME", FILENAME)
 
     if (!existsSync(FILENAME)) {

@@ -15,6 +15,7 @@ const pathPrefix = require("../_11ty/pathPrefixUtilities");
 describe("check build output for a generic post", () => {
   describe("sample post", () => {
     const POST_FILENAME = "_site/posts/Domain-Design/index.html";
+    console.log("POST_FILENAME", POST_FILENAME)
     const URL = metadata.url;
     const POST_URL = URL + "/posts/Domain-Design/";
 
