@@ -3,8 +3,8 @@ layout: layouts/base.njk
 title: About
 templateClass: tmpl-post
 eleventyNavigation:
-key: About
-order: 3
+  key: About
+  order: 3
 ---
 
 > Mumbai's largest OSS community and organizing its longest running [over 8 years] tech meetup #mumtechup
