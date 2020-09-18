@@ -3,10 +3,13 @@ const assert = require("assert").strict;
 const { JSDOM } = require("jsdom");
 const readFileSync = require("fs").readFileSync;
 const existsSync = require("fs").existsSync;
+const pathPrefixes = require("../_11ty/pathPrefixUtilities")
 
 describe("check build output for homepage", () => {
   describe("homepage", () => {
-    const FILENAME = "_site/index.html";
+
+    const FILENAME = (pathPrefixes.hasPathPrefix()) ? `_site${pathprefixes.getPathPrefix()}/index.html` : "_site/index.html";
+    console.log("FILENAME", FILENAME)
 
     if (!existsSync(FILENAME)) {
       it("WARNING skipping tests because FILENAME does not exist", () => { });

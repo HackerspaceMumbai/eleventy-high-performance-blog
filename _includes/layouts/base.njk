@@ -43,8 +43,8 @@
 
     <link rel="preconnect" href="/" crossorigin>
     <link rel="preconnect" href="https://img.youtube.com/" crossorigin />
-    <script async defer src="{{ "/js/min.js" | addHash }}"></script>
-    <script async defer src="{{ "/js/cached.js" | addHash }}"></script>
+    <script async defer src="{{ "/js/min.js" | addHash | url }}"></script>
+    <script async defer src="{{ "/js/cached.js" | addHash | url }}"></script>
     <!-- Notably iOS UAs also contain Mac OS X -->
     <script csp-hash>if (/Mac OS X/.test(navigator.userAgent))document.documentElement.classList.add('apple')
     </script>
