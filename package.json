@@ -4,8 +4,8 @@
   "license": "MIT",
   "description": "A starter repository for a blog web site using the Eleventy static site generator.",
   "scripts": {
-    "build": "npm run js-build && eleventy && npm run test",
-    "watch": "concurrently \"eleventy --serve\" \"npm run js-build-watch\" \"npm run test-watch\"",
+    "build": "npm run js-build && eleventy --pathprefix=/blog && npm run test --pathprefix=/blog",
+    "watch": "concurrently \"eleventy --serve --pathprefix=\"/blog\" \" \"npm run js-build-watch\" \"npm run test-watch\"",
     "serve": "eleventy --serve",
     "js-build": "rollup -c rollup.config.js",
     "js-build-watch": "rollup -c rollup.config.js -w",
@@ -37,6 +37,7 @@
     "luxon": "^1.21.3",
     "markdown-it": "^8.4.2",
     "markdown-it-anchor": "^5.2.5",
+    "minimist": "^1.2.5",
     "node-fetch": "^2.6.0",
     "pre-commit": "^1.2.2",
     "pre-push": "^0.1.1",

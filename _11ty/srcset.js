@@ -23,6 +23,8 @@ const { promisify } = require("util");
 const exists = promisify(require("fs").exists);
 const sharp = require("sharp");
 const avif = require("./avif");
+const pathPrefixUtils = require("./pathPrefixUtilities");
+
 
 /**
  * Generates sensible sizes for each image for use in a srcset.
@@ -40,6 +42,13 @@ module.exports = async function srcset(filename, format) {
   const names = await Promise.all(
     widths.map((w) => resize(filename, w, format))
   );
+
+  /**
+   * * Checking if pathprefix has been passed has an argument,
+   *   and if yes, inveigling it at the start of the srcset
+   */
+  if (pathPrefixUtils.hasPathPrefix())
+    return names.map((n, i) => `${pathPrefixUtils.getPathPrefix()}${n} ${widths[i]}w`).join(", ");
   return names.map((n, i) => `${n} ${widths[i]}w`).join(", ");
 };
 
@@ -53,10 +62,10 @@ async function resize(filename, width, format) {
   } else {
     await sharp("_site" + filename)
       .resize(width)
-      [format]({
-        quality: 60,
-        reductionEffort: 6,
-      })
+    [format]({
+      quality: 60,
+      reductionEffort: 6,
+    })
       .toFile("_site" + out);
   }
 

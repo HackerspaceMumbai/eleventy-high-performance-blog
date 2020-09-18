@@ -4,6 +4,7 @@ const { JSDOM } = require("jsdom");
 const readFileSync = require("fs").readFileSync;
 const existsSync = require("fs").existsSync;
 const metadata = require("../_data/metadata.json");
+const pathPrefix = require("../_11ty/pathPrefixUtilities");
 
 /**
  * These tests kind of suck and they are kind of useful.
@@ -11,7 +12,6 @@ const metadata = require("../_data/metadata.json");
  * They suck, because they need to be changed when the hardcoded post changes.
  * They are useful because I tend to break the things they test al the time.
  */
-
 describe("check build output for a generic post", () => {
   describe("sample post", () => {
     const POST_FILENAME = "_site/posts/Domain-Design/index.html";
@@ -125,13 +125,27 @@ describe("check build output for a generic post", () => {
         //const avif = sources.shift();
         const webp = sources.shift();
         const jpg = sources.shift();
-        expect(jpg.srcset).to.match(
-          /\/img\/blog\/([\w'-]+)-1920w.jpg 1920w, \/img\/blog\/([\w'-]+)-1280w.jpg 1280w, \/img\/blog\/([\w'-]+)-640w.jpg 640w, \/img\/blog\/([\w'-]+)-320w.jpg 320w/
-        );
-        expect(webp.srcset).to.match(
-          /\/img\/blog\/([\w'-]+)-1920w.webp 1920w, \/img\/blog\/([\w'-]+)-1280w.webp 1280w, \/img\/blog\/([\w'-]+)-640w.webp 640w, \/img\/blog\/([\w'-]+)-320w.webp 320w/
+        /*
+          TODO: append pathPrefix path to the below srcset
+        */
+        if (pathPrefix.hasPathPrefix) {
+          expect(jpg.srcset).to.match(
+            /\/blog\/img\/blog\/([\w'-]+)-1920w.jpg 1920w, \/blog\/img\/blog\/([\w'-]+)-1280w.jpg 1280w, \/blog\/img\/blog\/([\w'-]+)-640w.jpg 640w, \/blog\/img\/blog\/([\w'-]+)-320w.jpg 320w/
+          );
+          expect(webp.srcset).to.match(
+            /\/blog\/img\/blog\/([\w'-]+)-1920w.webp 1920w, \/blog\/img\/blog\/([\w'-]+)-1280w.webp 1280w, \/blog\/img\/blog\/([\w'-]+)-640w.webp 640w, \/blog\/img\/blog\/([\w'-]+)-320w.webp 320w/
+          );
+        }
 
-        );
+        else {
+          expect(jpg.srcset).to.match(
+            /\/img\/blog\/([\w'-]+)-1920w.jpg 1920w, \/img\/blog\/([\w'-]+)-1280w.jpg 1280w, \/img\/blog\/([\w'-]+)-640w.jpg 640w, \/img\/blog\/([\w'-]+)-320w.jpg 320w/
+          );
+          expect(webp.srcset).to.match(
+            /\/img\/blog\/([\w'-]+)-1920w.webp 1920w, \/img\/blog\/([\w'-]+)-1280w.webp 1280w, \/img\/blog\/([\w'-]+)-640w.webp 640w, \/img\/blog\/([\w'-]+)-320w.webp 320w/
+          );
+        }
+
         //expect(avif.srcset).to.match(
         //  /\/img\/remote\/\w+-1920w.avif 1920w, \/img\/remote\/\w+-1280w.avif 1280w, \/img\/remote\/\w+-640w.avif 640w, \/img\/remote\/\w+-320w.avif 320w/
         //);
