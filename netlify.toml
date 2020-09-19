@@ -18,5 +18,3 @@
 [[redirects]]
   from = "/*"
   to = "/blog/:splat"
-  status = 301
-  force = true
