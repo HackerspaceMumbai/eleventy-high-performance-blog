@@ -16,5 +16,5 @@
       Content-Disposition = "inline"
 
 [[redirects]]
-  from = "/blog"
+  from = "/blog/*"
   to = "/"
