@@ -18,7 +18,7 @@
 
   },
   "pre-push": [
-    "build:prefix"
+    "build:pathprefix"
   ],
   "pre-commit": [],
   "repository": {
