@@ -5,6 +5,7 @@ const readFileSync = require("fs").readFileSync;
 const existsSync = require("fs").existsSync;
 const metadata = require("../_data/metadata.json");
 const pathPrefix = require("../_11ty/pathPrefixUtilities");
+const developmentMode = require("../_data/isdevelopment");
 
 /**
  * These tests kind of suck and they are kind of useful.
@@ -45,9 +46,12 @@ describe("check build output for a generic post", () => {
 
     it("should have metadata", () => {
       assert.equal(select("title"), "The Big Picture");
-      expect(select("meta[property='og:image']", "content")).to.match(
-        /\/img\/remote\/\w+.png/
-      );
+      if (developmentMode()) {
+        expect(select("meta[property='og:image']", "content")).to.match(
+          /\/img\/remote\/\w+.png/
+        );
+      }
+
       assert.equal(select("link[rel='canonical']", "href"), POST_URL);
       assert.equal(
         select("meta[name='description']", "content"),
