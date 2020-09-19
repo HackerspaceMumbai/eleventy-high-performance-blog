@@ -1,6 +1,6 @@
 [build]
   publish = "_site"
-  base = "blog"
+
   # Allows overriding metadata.json via env var
 
   command = "[ \"$METADATA_JSON\" ] && echo $METADATA_JSON > _data/metadata.json; npm run build"
@@ -14,3 +14,8 @@
     [headers.values]
       Content-Type = "image/avif"
       Content-Disposition = "inline"
+
+[[redirects]]
+  from = "/"
+  to = "/blog"
+  status = 200
