@@ -17,4 +17,4 @@
 
 [[redirects]]
   from = "/blog/*"
-  to = "/"
+  to = "/:splat"
