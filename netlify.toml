@@ -18,4 +18,5 @@
 [[redirects]]
   from = "/"
   to = "/blog"
-  status = 200
+  status = 301
+  force = false
