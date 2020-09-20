@@ -22,7 +22,7 @@ In this first blog about the project, we will envision the strategic design of t
 
 The first tool in our arsenal is Event Storming[ES], which is in its essence, the plotting of Domain events [usually depicted in orange boxes] on a somewhat linear time scale as they occur in real life.
 
-![1st iteration Event Storm](/img/blog/Event_Storming_I1.jpg.jpg)
+![1st iteration Event Storming](/img/blog/Event_Storming_I1.jpg)
 
 Our 1st iteration yielded the below:
 
@@ -71,7 +71,7 @@ Now that we have our Bounded Contexts, lets see how they work with each other. M
 
 Next up we try to focus on each Bounded Context individually. [Nick Tune](https://medium.com/@ntcoding) & his buddies at [DDD Crew](https://github.com/ddd-crew) [go check out their GitHub organization for more DDD goodies] had come up with a modelling technique to approach a Bounded Context like a black box: see what goes in, what comes out and what gets processed. The canvases have been sketched out using [draw.io](https://drawio-app.com/)
 
-![Shortlisting Bounded Context Canvas](/img/blog/Shortlistingv4.png)
+![Shortlisting Bounded Context Canvas](/img/blog/Bounded_Context_Canvas.png)
 
 Can you see the Core Domain Charts effect out here? Since Shortlisting is a core domain, it will be in a driving position with Scheduling, which is a Generic/Supporting domain, hence the former is the customer while the latter is a supplier. While with CheckingIn, which is also a core domain, it is treated on an equal footing. Don't overlook politics.
 
