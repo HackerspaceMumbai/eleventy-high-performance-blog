@@ -1,16 +1,16 @@
 ---
-title: The Big Picture
+title: Domain Driven Design
 date: 2020-08-27
 description: Implementing Strategic Domain driven Design for Visage with EventStorming, Domain Storytelling, Core Charts, Bounded Context Canvas.
-image: /img/blog/Shortlistingv4.png
+image: /img/blog/Bounded_Context_Canvas.png
 tags:
   - blog
+category: Visage
 layout: layouts/post.njk
+permalink: "{{page.fileSlug}}.html"
 ---
 
-## Introduction
-
-Starting a project is akin to crossing valleys to trek up a mountain for the first time: a map is a great companion. Thats what [Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design) does for our project: creates just not a 20000 feet view but also literally provides us a road map to build our project.
+Beginning a project is akin to crossing familiar valleys to trek up a new mountain: a map is a great guide. Thats what [Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design) does for our project: creates just not a 20000 feet view but also literally lays out a map to build our project.
 
 The [Statement of Intent](https://github.com/HackerspaceMumbai/Visage/wiki/1-Statement-Of-Intent) and [Workflow](https://github.com/HackerspaceMumbai/Visage/wiki/2-Essential-Workflow) provides the foundation for the design decisions.
 
@@ -22,7 +22,7 @@ In this first blog about the project, we will envision the strategic design of t
 
 The first tool in our arsenal is Event Storming[ES], which is in its essence, the plotting of Domain events [usually depicted in orange boxes] on a somewhat linear time scale as they occur in real life.
 
-![1st iteration Event Storm](/img/blog/Design-ES-1st.jpg)
+![1st iteration Event Storm](/img/blog/Event_Storming_I1.jpg.jpg)
 
 Our 1st iteration yielded the below:
 
@@ -42,7 +42,7 @@ Also we noticed that our technical biases are creeping in[Send Email, duh🤦‍
 
 Voila, the final version of the Big Picture Event Storming is built with [Mural](https://app.mural.co/invitation/mural/hm2422/1595976908405?sender=augcor3018&key=22e68a54-6b14-413d-a37c-b6278ccacfb7) which has a more professional looking Event Storming template.
 
-![Big Picture Event Storming](/img/blog/BigPictureEventStorming_fin.png)
+![Big Picture Event Storming](/img/blog/Big_Picture_Event_Storming.png)
 
 Based on a few design heuristics, "I spy" the nebulous contours of at least two bounded contexts[BC] with the "RegistrationClosed" being the pivotal event. I have named them "Event Registration" and "Check-ins" respectively after agonizingly iterating over them over a day or so especially the former.
 
@@ -65,7 +65,7 @@ One of the heuristic that is associated with Domain StoryTelling is that uni-dir
 
 Now that we have our Bounded Contexts, lets see how they work with each other. Most folks go with Context Maps as their tool for this as recommended by [Eric Evans](https://dddcommunity.org/book/evans_2003/) but I prefer Core Domain Charts, since the latter strategically depicts the relationships between bounded contexts.
 
-![Core Domain Charts](/img/blog/Visage-Core-Domain.png)
+![Core Domain Charts](/img/blog/Visage_Core_Domain_Charts.png)
 
 ## Bounded Context Canvas
 
@@ -81,7 +81,7 @@ These canvases are the first artifacts to be [checked into the GitHub repo hoste
 
 Lastly, an app or a project does not exist in a vacuum, rather its invariably part of an ecosystem. I use Impact Mapping to do a kind of out of the box thinking, getting the lay of the land so to say, see who are allies of the project and what it is up against to make a dent in the cosmos.
 
-![Impact Mapping](/img/blog/ImpactMapping_fin.png)
+![Impact Mapping](/img/blog/Impact_Mapping.png)
 
 > "Make your vision so clear that your fears become irrelevant."
 
