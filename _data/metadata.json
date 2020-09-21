@@ -1,7 +1,7 @@
 {
   "title": "Hackerspace Mumbai Blog",
-  "url": "https://blog.hackmum.in",
-  "domain": "blog.hackmum.in",
+  "url": "https://hackmum.in",
+  "domain": "hackmum.in",
   "description": "Chronicling our journey through technology and community",
   "genre": "Blog",
   "googleAnalyticsId": "UA-43044929-7",
@@ -9,11 +9,11 @@
     "subtitle": "Hackerspace Mumbai Blog Feed",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
-    "id": "https://blog.hackmum.in"
+    "id": "https://hackmum.in"
   },
   "jsonfeed": {
     "path": "/feed/feed.json",
-    "url": "https://blog.hackmum.in/feed/feed.json"
+    "url": "https://hackmum.in/feed/feed.json"
   },
   "author": {
     "name": "Hackerspace Mumbai",
