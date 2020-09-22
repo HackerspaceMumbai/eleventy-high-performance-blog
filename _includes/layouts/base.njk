@@ -31,7 +31,17 @@
       <meta property="og:image" content="{{ metadata.image.logo | url | absoluteUrl(metadata.url) }}">
     {% endif %}
 
-    <link rel="canonical" href="{{ metadata.url }}{{ canonicalUrl or page.url }}">
+    {% if page.url.indexOf('blog') %}
+      <meta property="og:type" content="article">
+      <meta name="robots" content="index,follow" />
+    {% else %}
+      <meta property="og:type" content="website">
+    {% endif %}
+
+    <link rel="apple-touch-icon" href="{{'/img/favicon/apple-touch-icon.png' | url }}">
+
+    <meta property="og:url" content = "{{ metadata.url }}{{ canonicalUrl or page.url | replace('.html', '') }}">
+    <link rel="canonical" href="{{ metadata.url }}{{ canonicalUrl or page.url | replace('.html', '')  }}">
     <!-- This is a blog and so it SHOULD be safe and it is nice for the web
          to send referrers cross-origin.
          However, if you use sensitive data in URLs, consider changing this to
@@ -77,7 +87,7 @@
           {{ content | safe }}
         {% endblock %}
 
-        {% if page.url.indexOf("/posts/") > -1 %}
+        {% if page.url.indexOf("/blog/") > -1 %}
           <p>Published <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
         {% endif %}
       </article>
