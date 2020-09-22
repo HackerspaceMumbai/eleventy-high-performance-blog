@@ -14,7 +14,8 @@
     "debug": "DEBUG=* eleventy && npm run test",
     "test": "mocha test/test*.js",
     "test:pathprefix": "mocha test/test*.js --pathprefix='/blog'",
-    "test-watch": "mocha test/test*.js --watch --pathprefix=/blog",
+    "test-watch": "mocha test/test*.js --watch",
+    "test-watch: prefix": "mocha test/test*.js --watch --pathprefix=/blog",
     "clean": "rm -rf ./_site"
 
   },

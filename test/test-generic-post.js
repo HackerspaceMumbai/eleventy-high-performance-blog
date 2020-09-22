@@ -15,10 +15,10 @@ const developmentMode = require("../_data/isdevelopment");
  */
 describe("check build output for a generic post", () => {
   describe("sample post", () => {
-    const POST_FILENAME = "_site/posts/Domain-Design/index.html";
+    const POST_FILENAME = "_site/blog/Strategic_Domain_Driven_Design.html";
     console.log("POST_FILENAME", POST_FILENAME)
     const URL = metadata.url;
-    const POST_URL = URL + "/posts/Domain-Design/";
+    const POST_URL = URL + "/blog/Strategic_Domain_Driven_Design";
 
     if (!existsSync(POST_FILENAME)) {
       it("WARNING skipping tests because POST_FILENAME does not exist", () => { });
@@ -45,7 +45,7 @@ describe("check build output for a generic post", () => {
     });
 
     it("should have metadata", () => {
-      assert.equal(select("title"), "The Big Picture");
+      assert.equal(select("title"), "Domain Driven Design");
       if (developmentMode()) {
         expect(select("meta[property='og:image']", "content")).to.match(
           /\/img\/remote\/\w+.png/
@@ -55,7 +55,7 @@ describe("check build output for a generic post", () => {
       assert.equal(select("link[rel='canonical']", "href"), POST_URL);
       assert.equal(
         select("meta[name='description']", "content"),
-        "Implementing Strategic Domain driven Design for Visage with EventStorming, Domain Storytelling, Core Charts, Bounded Context Canvas."
+        "Strategic Domain driven Design for Visage with EventStorming, Domain Storytelling, Core Charts, Bounded Context Canvas."
       );
     });
 
@@ -85,11 +85,11 @@ describe("check build output for a generic post", () => {
     });
 
     it("should have a share widget", () => {
-      expect(select("share-widget button", "href")).to.equal(POST_URL);
+      expect(select("share-widget button", "href")).to.equal(POST_URL + ".html");
     });
 
     it("should have a header", () => {
-      expect(select("header > h1")).to.equal("The Big Picture");
+      expect(select("header > h1")).to.equal("Domain Driven Design");
       expect(select("header aside")).to.match(/\d+ min read./);
       expect(select("header dialog", "id")).to.equal("message");
     });
@@ -133,7 +133,11 @@ describe("check build output for a generic post", () => {
         /*
           TODO: append pathPrefix path to the below srcset
         */
-        if (pathPrefix.hasPathPrefix) {
+        if (pathPrefix.hasPathPrefix()) {
+          console.log("pathPrefix.hasPathPrefix()", pathPrefix.hasPathPrefix());
+          console.log("pathPrefix.getPathPrefix()", pathPrefix.getPathPrefix())
+
+
           expect(jpg.srcset).to.match(
             /\/blog\/img\/blog\/([\w'-]+)-1920w.jpg 1920w, \/blog\/img\/blog\/([\w'-]+)-1280w.jpg 1280w, \/blog\/img\/blog\/([\w'-]+)-640w.jpg 640w, \/blog\/img\/blog\/([\w'-]+)-320w.jpg 320w/
           );

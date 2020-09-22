@@ -1,14 +1,13 @@
 ---
 title: Domain Driven Design
 date: 2020-08-27
-description: Implementing Strategic Domain driven Design for Visage with EventStorming, Domain Storytelling, Core Charts, Bounded Context Canvas.
+description: Strategic Domain driven Design for Visage with EventStorming, Domain Storytelling, Core Charts, Bounded Context Canvas.
 image: /img/blog/Bounded_Context_Canvas.png
 tags:
   - blog
 category: Visage
 layout: layouts/post.njk
 ---
-
 Beginning a project is akin to crossing familiar valleys to trek up a new mountain: a map is a great guide. Thats what [Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design) does for our project: creates just not a 20000 feet view but also literally lays out a map to build our project.
 
 The [Statement of Intent](https://github.com/HackerspaceMumbai/Visage/wiki/1-Statement-Of-Intent) and [Workflow](https://github.com/HackerspaceMumbai/Visage/wiki/2-Essential-Workflow) provides the foundation for the design decisions.
