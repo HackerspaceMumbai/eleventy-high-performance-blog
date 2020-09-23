@@ -19,7 +19,7 @@
     "clean": "rm -rf ./_site"
   },
   "pre-push": [
-    "build:pathprefix"
+    "build"
   ],
   "pre-commit": [],
   "repository": {
@@ -44,7 +44,6 @@
     "markdown-it-anchor": "^5.2.5",
     "minimist": "^1.2.5",
     "node-fetch": "^2.6.0",
-    "phin": "^3.5.0",
     "pre-commit": "^1.2.2",
     "pre-push": "^0.1.1",
     "rollup-plugin-terser": "^6.1.0",
