@@ -6,6 +6,7 @@ const existsSync = require("fs").existsSync;
 const metadata = require("../_data/metadata.json");
 const pathPrefix = require("../_11ty/pathPrefixUtilities");
 const developmentMode = require("../_data/isdevelopment");
+const GA_ID = require("../_data/googleanalytics.js")();
 
 /**
  * These tests kind of suck and they are kind of useful.
@@ -63,6 +64,34 @@ describe("check build output for a generic post", () => {
       const css = select("style");
       expect(css).to.match(/header nav/);
       expect(css).to.not.match(/test-dead-code-elimination-sentinel/);
+    });
+
+    it("should have script elements", () => {
+      const scripts = doc.querySelectorAll("script[src]");
+      expect(scripts).to.have.length(GA_ID ? 2 : 1);
+      expect(scripts[0].getAttribute("src")).to.match(
+        /^\/js\/min\.js\?hash=\w+/
+      );
+    });
+
+    it("should have GA a setup", () => {
+      if (!GA_ID) {
+        return;
+      }
+      const scripts = doc.querySelectorAll("script[src]");
+      expect(scripts[1].getAttribute("src")).to.match(
+        /^\/js\/cached\.js\?hash=\w+/
+      );
+      const noscript = doc.querySelectorAll("noscript");
+      expect(noscript.length).to.be.greaterThan(0);
+      let count = 0;
+      for (let n of noscript) {
+        if (n.textContent.includes("/.netlify/functions/ga")) {
+          count++;
+          expect(n.textContent).to.contain(GA_ID);
+        }
+      }
+      expect(count).to.equal(1);
     });
 
     it("should have a good CSP", () => {
