@@ -8,23 +8,23 @@ tags:
 category: Visage
 layout: layouts/post.njk
 ---
-Beginning a project is akin to crossing familiar valleys to trek up a new mountain: a map is a great guide. Thats what [Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design) does for our project: creates just not a 20000 feet view but also literally lays out a map to build our project.
+A software project is akin to crossing familiar valleys to scale up a new mountain: maps are vital. Thats why [Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design) is so useful for our projects: creates just not a 20000 feet view but also literally lays out a pathway to build our project.
 
-The [Statement of Intent](https://github.com/HackerspaceMumbai/Visage/wiki/1-Statement-Of-Intent) and [Workflow](https://github.com/HackerspaceMumbai/Visage/wiki/2-Essential-Workflow) provides the foundation for the design decisions.
+Please read the project's [Statement of Intent](https://github.com/HackerspaceMumbai/Visage/wiki/1-Statement-Of-Intent) and [Workflow](https://github.com/HackerspaceMumbai/Visage/wiki/2-Essential-Workflow), which provides the foundation for the design decisions to follow.
 
-In this first blog about the project, we will envision the strategic design of the project. This will include modelling the Domain through a process of intentional discovery and relying on different tools to build a broad contour, tease out implicit requirements as well as unearth any blind spots. All this will become apparent below as a "clearer picture" emerges.
+In this first blog post about the project, we will model the Domain through a process of intentional discovery and rely on different tools to build broad contours, tease out implicit requirements as well as unearth any blind spots. All this will become apparent below as a "clearer picture" emerges.
 
-> At its core, the goal of Strategic DDD is to help us find the most elusive things in Domain-driven Design: [Bounded Contexts](https://www.infoq.com/news/2019/06/bounded-context-eric-evans/).
+> The goal of Strategic DDD is to help us chart the most elusive things in Domain-driven Design: [Bounded Contexts](https://www.infoq.com/news/2019/06/bounded-context-eric-evans/).
 
 ## Big Picture Event Storming
 
-The first tool in our arsenal is Event Storming[ES], which is in its essence, the plotting of Domain events [usually depicted in orange boxes] on a somewhat linear time scale as they occur in real life.
+Our first tool is Event Storming[ES], which is in its essence the plotting of Domain events [usually depicted in orange] on a somewhat linear time scale as they occur in real life.
+
+Our 1st iteration yielded:
 
 ![1st iteration Event Storming](/img/blog/Event_Storming_I1.jpg)
 
-Our 1st iteration yielded the below:
-
-While the key concept to separate Bounded Contexts is the Ubiquitous Language, I feel there should also be a core set of Unambiguous Vocabulary to unify at the domain level. The word _Event_ in English has different meanings depending on the context, especially in software & DDD. So in a nod to my Indian heritage, I standardized on the Sanskrit root word for events, meetups, conferences, functions etc -> **Karyakaram**
+While the key concept to separate Bounded Contexts is the [Ubiquitous Language  ](https://martinfowler.com/bliki/UbiquitousLanguage.html), I feel there should also be a core set of Unambiguous Vocabulary to unify at the domain level. The word _Event_ in English has different meanings depending on the context, especially in software & DDD. So in a nod to my Indian heritage, I standardized on the Sanskrit root word for events, meetups, conferences, functions etc -> **Karyakaram**
 
 Please notice the spacing between the events. Some are bunched up together and this is a reflection of their proximity to each other in respect of time. Our bounded contexts are emerging.
 
@@ -52,7 +52,7 @@ Thanks to the good folks at [WPS](https://github.com/WPS), who have provided a D
 
 <iframe loading="lazy" name="DomainStoryTelling" width="100%" height="auto" src="https://www.youtube.com/embed/5vXRYps9_n8" srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/5vXRYps9_n8?autoplay=1><img src=https://img.youtube.com/vi/5vXRYps9_n8/hqdefault.jpg alt='Domain StoryTelling for Visage as part of Strategic DDD'><span>▶</span></a>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Domain StoryTelling for Visage as part of Strategic DDD"></iframe>
 
-One of the heuristic that is associated with Domain StoryTelling is that uni-directional flows are usually indicative of bounded contexts. This was quite revealing for now it shows that they are definitely three distinct bounded contexts.
+One of the heuristic that is associated with Domain StoryTelling is that uni-directional flows are usually indicative of bounded contexts. This was quite revealing for now it shows that they are definitely [three distinct bounded contexts](https://docs.microsoft.com/azure/architecture/microservices/model/domain-analysis?WT.mc_id=OSS-MVP-5003041).
 
 1. Scheduling
 2. Shortlisting
