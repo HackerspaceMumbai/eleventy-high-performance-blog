@@ -5,12 +5,11 @@ description: Strategic Domain driven Design for Visage with EventStorming, Domai
 image: /img/blog/Bounded_Context_Canvas.png
 tags:
   - blog
-category: Visage
 layout: layouts/post.njk
 ---
-A software project is akin to crossing familiar valleys to scale up a new mountain: maps are vital. Thats why [Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design) is so useful for our projects: creates just not a 20000 feet view but also literally lays out a pathway to build our project.
+A software project is akin to crossing familiar valleys to scale up a new mountain: maps are vital. And [Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design) does just that: it not only provides a 20000 feet view but also guides us along a pathway to flesh out our project.
 
-Please read the project's [Statement of Intent](https://github.com/HackerspaceMumbai/Visage/wiki/1-Statement-Of-Intent) and [Workflow](https://github.com/HackerspaceMumbai/Visage/wiki/2-Essential-Workflow), which provides the foundation for the design decisions to follow.
+Visage's [Statement of Intent](https://github.com/HackerspaceMumbai/Visage/wiki/1-Statement-Of-Intent) and [Workflow](https://github.com/HackerspaceMumbai/Visage/wiki/2-Essential-Workflow) forms the foundation for the design decisions to follow.
 
 In this first blog post about the project, we will model the Domain through a process of intentional discovery and rely on different tools to build broad contours, tease out implicit requirements as well as unearth any blind spots. All this will become apparent below as a "clearer picture" emerges.
 
@@ -18,23 +17,23 @@ In this first blog post about the project, we will model the Domain through a pr
 
 ## Big Picture Event Storming
 
-Our first tool is Event Storming[ES], which is in its essence the plotting of Domain events [usually depicted in orange] on a somewhat linear time scale as they occur in real life.
+Our first tool is Event Storming[ES], which is essentially the plotting of Domain events [usually depicted in orange] on a somewhat linear time scale as they occur in real life.
 
 Our 1st iteration yielded:
 
 ![1st iteration Event Storming](/img/blog/Event_Storming_I1.jpg)
 
-While the key concept to separate Bounded Contexts is the [Ubiquitous Language  ](https://martinfowler.com/bliki/UbiquitousLanguage.html), I feel there should also be a core set of Unambiguous Vocabulary to unify at the domain level. The word _Event_ in English has different meanings depending on the context, especially in software & DDD. So in a nod to my Indian heritage, I standardized on the Sanskrit root word for events, meetups, conferences, functions etc -> **Karyakaram**
+While [Ubiquitous Language  ](https://martinfowler.com/bliki/UbiquitousLanguage.html) is the key to separate out Bounded Contexts, I feel there should also be a core set of Unambiguous Vocabulary to unify a domain. The word _Event_ in English has different meanings depending on the context, especially in software & DDD. So in a nod to my Indian heritage, I standardized on the Sanskrit root word for events, meetups, conferences, functions etc -> **Karyakaram**
 
 Please notice the spacing between the events. Some are bunched up together and this is a reflection of their proximity to each other in respect of time. Our bounded contexts are emerging.
 
 These events are triggered by commands[depicted as blue rectangular boxes] which are usually "intentioned" by users [in yellow] or external systems [in pink].
 
-Our 2nd iteration results:
+Our 2nd iteration results in:
 
 ![2nd iteration Event Storming](https://res.cloudinary.com/mumbai-hackerspace/image/upload/q_auto,f_auto/v1599142822/Visage/Design-ES-2nd.jpg)
 
-Note how we have now added a few more events. This process of discovery is encouraged in Event Storming. Our first draft will never be perfect but it sets the bedrock for further exploration.
+Note how we have now added a few more Domain events. This process of discovery is encouraged in Event Storming. Our first draft will never be perfect but it sets the bedrock for further exploration.
 
 Also we noticed that our technical biases are creeping in[Send Email, duh🤦‍♂️]. We need to ensure all terms are only domain specific. Lets do some correction and flesh out the rest of the diagram.
 
@@ -71,7 +70,7 @@ Next up we try to focus on each Bounded Context individually. [Nick Tune](https:
 
 ![Shortlisting Bounded Context Canvas](/img/blog/Bounded_Context_Canvas.png)
 
-Can you see the Core Domain Charts effect out here? Since Shortlisting is a core domain, it will be in a driving position with Scheduling, which is a Generic/Supporting domain, hence the former is the customer while the latter is a supplier. While with CheckingIn, which is also a core domain, it is treated on an equal footing. Don't overlook politics.
+Can you see the Core Domain Charts effect out here? Since Shortlisting is a core domain, it will be in a driving position vis-a-vis Scheduling, which is a Generic/Supporting domain, hence the former is the customer while the latter is a supplier. On the other hand with CheckingIn, which is also a core domain, it is treated on an equal footing. Don't ignore realpolitik.
 
 These canvases are the first artifacts to be [checked into the GitHub repo hosted source folder](https://github.com/HackerspaceMumbai/Visage/commit/6768e24bc865e2b12109198ebe0421ba93991b2b) of their respective microservices as part of [Living Documentation](https://leanpub.com/livingdocumentation). In a sense, it signifies these canvases are the spiritual fountainhead of the co-located code.
 
