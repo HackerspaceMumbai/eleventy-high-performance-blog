@@ -37,21 +37,24 @@ templateClass: tmpl-post
   "@type": "Article",
   "headline": "{{ title }}",
   "image": [],
-  "author": "{{ metadata.author.name }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ metadata.author.name }}"
+  },
   "genre": "{{ metadata.genre }}",
   "publisher": {
     "@type": "Organization",
     "name": "{{ metadata.publisher.name }}",
     "logo": {
       "@type": "ImageObject",
-      "url": "{{ '/img/favicon/favicon-192x192.png' | addHash }}"
+      "url": "{{ metadata.image.logo | url | addHash }}"
     }
   },
   "url": "{{ metadata.url }}{{ canonicalUrl or page.url }}",
   "mainEntityOfPage": "{{ metadata.url }}{{ canonicalUrl or page.url }}",
   "datePublished": "{{ page.date | htmlDateString }}",
   "dateModified": "{{ page.inputPath | lastModifiedDate  | htmlDateString }}",
-  "description": "{{ content | striptags | truncate(140) }}"
+  "description": "{{ description | striptags | truncate(140) }}"
 }
 </script>
 
