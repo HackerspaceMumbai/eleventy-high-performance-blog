@@ -1,6 +1,6 @@
 ---
 title: Domain Driven Design
-date: 2020-08-27
+date: 2020-09-29
 description: Strategic Domain driven Design for Visage with EventStorming, Domain Storytelling, Core Charts, Bounded Context Canvas.
 image: /img/blog/Bounded_Context_Canvas.png
 tags:
