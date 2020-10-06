@@ -1,7 +1,7 @@
 ---
-title: Domain Driven Design
+title: Domain-Driven Design
 date: 2020-09-29
-description: Strategic Domain driven Design for Visage with EventStorming, Domain Storytelling, Core Charts, Bounded Context Canvas.
+description: Strategic Domain-Design for Visage with EventStorming, Domain Storytelling, Core Charts, Bounded Context Canvas.
 image: /img/blog/Bounded_Context_Canvas.png
 tags:
   - blog
@@ -23,7 +23,7 @@ Our 1st iteration yielded:
 
 ![1st iteration Event Storming](/img/blog/Event_Storming_I1.jpg)
 
-While [Ubiquitous Language  ](https://martinfowler.com/bliki/UbiquitousLanguage.html) is the key to separate out Bounded Contexts, I feel there should also be a core set of Unambiguous Vocabulary to unify a domain. The word _Event_ in English has different meanings depending on the context, especially in software & DDD. So in a nod to my Indian heritage, I standardized on the Sanskrit root word for events, meetups, conferences, functions etc -> **Karyakaram**
+While [Ubiquitous Language](https://martinfowler.com/bliki/UbiquitousLanguage.html) is the key to separate out Bounded Contexts, I feel there should also be a core set of Unambiguous Vocabulary to unify a domain. The word _Event_ in English has different meanings depending on the context, especially in software & DDD. So in a nod to my Indian heritage, I standardized on the Sanskrit root word for events, meetups, conferences, functions, etc -> **Karyakaram**
 
 Please notice the spacing between the events. Some are bunched up together and this is a reflection of their proximity to each other in respect of time. Our bounded contexts are emerging.
 
@@ -35,7 +35,7 @@ Our 2nd iteration results in:
 
 Note how we have now added a few more Domain events. This process of discovery is encouraged in Event Storming. Our first draft will never be perfect but it sets the bedrock for further exploration.
 
-Also we noticed that our technical biases are creeping in[Send Email, duh🤦‍♂️]. We need to ensure all terms are only domain specific. Lets do some correction and flesh out the rest of the diagram.
+Also, we noticed that our technical biases are creeping in[Send Email, duh🤦‍♂️]. We need to ensure all terms are only domain-specific. Let's do some correction, and flesh out the rest of the diagram.
 
 Voila, the final version of the Big Picture Event Storming is built with [Mural](https://app.mural.co/invitation/mural/hm2422/1595976908405?sender=augcor3018&key=22e68a54-6b14-413d-a37c-b6278ccacfb7) which has a more professional looking Event Storming template.
 
@@ -47,11 +47,11 @@ Based on a few design heuristics, "I spy" the nebulous contours of at least two 
 
 [Domain Storytelling](https://domainstorytelling.org/) is a DDD tool where Domain Experts pictorially depict their workflow involving actors and work objects. The kicker here is that the activities are numbered in order of their occurrence.
 
-Thanks to the good folks at [WPS](https://github.com/WPS), who have provided a Domain Storytelling [Modeller](https://www.wps.de/modeler/) to make our lives much easier, we have a short 20 second video of the Visage "story".
+Thanks to the good folks at [WPS](https://github.com/WPS), who have provided a Domain Storytelling [Modeller](https://www.wps.de/modeler/) to make our lives much easier, we have a short 20-second video of the Visage "story".
 
 <iframe loading="lazy" name="DomainStoryTelling" width="100%" height="auto" src="https://www.youtube.com/embed/5vXRYps9_n8" srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/5vXRYps9_n8?autoplay=1><img src=https://img.youtube.com/vi/5vXRYps9_n8/hqdefault.jpg alt='Domain StoryTelling for Visage as part of Strategic DDD'><span>▶</span></a>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Domain StoryTelling for Visage as part of Strategic DDD"></iframe>
 
-One of the heuristic that is associated with Domain StoryTelling is that uni-directional flows are usually indicative of bounded contexts. This was quite revealing for now it shows that they are definitely [three distinct bounded contexts](https://docs.microsoft.com/azure/architecture/microservices/model/domain-analysis?WT.mc_id=OSS-MVP-5003041).
+One of the heuristics that is associated with Domain StoryTelling is that uni-directional flows are usually indicative of bounded contexts. This was quite revealing for now it shows that they are definitely [three distinct bounded contexts](https://docs.microsoft.com/azure/architecture/microservices/model/domain-analysis?WT.mc_id=OSS-MVP-5003041).
 
 1. Scheduling
 2. Shortlisting
@@ -60,13 +60,13 @@ One of the heuristic that is associated with Domain StoryTelling is that uni-dir
 
 ## Core Domains Charts
 
-Now that we have our Bounded Contexts, lets see how they work with each other. Most folks go with Context Maps as their tool for this as recommended by [Eric Evans](https://dddcommunity.org/book/evans_2003/) but I prefer Core Domain Charts, since the latter strategically depicts the relationships between bounded contexts.
+Now that we have our Bounded Contexts, let's see how they work with each other. Most folks go with Context Maps as their tool for this as recommended by [Eric Evans](https://dddcommunity.org/book/evans_2003/) but I prefer Core Domain Charts since the latter strategically depicts the relationships between bounded contexts.
 
 ![Core Domain Charts](/img/blog/Visage_Core_Domain_Charts.png)
 
 ## Bounded Context Canvas
 
-Next up we try to focus on each Bounded Context individually. [Nick Tune](https://medium.com/@ntcoding) & his buddies at [DDD Crew](https://github.com/ddd-crew) [go check out their GitHub organization for more DDD goodies] had come up with a modelling technique to approach a Bounded Context like a black box: see what goes in, what comes out and what gets processed. The canvases have been sketched out using [draw.io](https://drawio-app.com/)
+Next up we try to focus on each Bounded Context individually. [Nick Tune](https://medium.com/@ntcoding) & his buddies at [DDD Crew](https://github.com/ddd-crew) [go check out their GitHub organization for more DDD goodies] had come up with a modeling technique to approach a Bounded Context like a black box: see what goes in, what comes out and what gets processed. The canvases have been sketched out using [draw.io](https://drawio-app.com/)
 
 ![Shortlisting Bounded Context Canvas](/img/blog/Bounded_Context_Canvas.png)
 
@@ -84,4 +84,4 @@ Lastly, an app or a project does not exist in a vacuum, rather its invariably pa
 
 You can follow the progress of this project on [Azure DevOps](https://bit.ly/2YHTZgq)
 
-For the next blog post, we will be going into Tactical DDD with Example Mapping based BDD, Process Modelling EventStorming, Aggregate Canvases etc.
+For the next blog post, we will be going into Tactical DDD with Example Mapping based BDD, Process Modelling EventStorming, Aggregate Canvases, etc.
