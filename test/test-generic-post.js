@@ -46,7 +46,7 @@ describe("check build output for a generic post", () => {
     });
 
     it("should have metadata", () => {
-      assert.equal(select("title"), "Domain Driven Design");
+      assert.equal(select("title"), "Domain-Driven Design");
       if (developmentMode()) {
         expect(select("meta[property='og:image']", "content")).to.match(
           /\/img\/remote\/\w+.png/
@@ -56,7 +56,7 @@ describe("check build output for a generic post", () => {
       assert.equal(select("link[rel='canonical']", "href"), POST_URL);
       assert.equal(
         select("meta[name='description']", "content"),
-        "Strategic Domain driven Design for Visage with EventStorming, Domain Storytelling, Core Charts, Bounded Context Canvas."
+        "Strategic Domain-Driven Design for Visage with Event Storming, Domain Storytelling, Core Charts, Bounded Context Canvas."
       );
     });
 
@@ -114,11 +114,11 @@ describe("check build output for a generic post", () => {
     });
 
     it("should have a share widget", () => {
-      expect(select("share-widget button", "href")).to.equal(POST_URL + ".html");
+      expect(select("share-widget button", "href")).to.equal(POST_URL);
     });
 
     it("should have a header", () => {
-      expect(select("header > h1")).to.equal("Domain Driven Design");
+      expect(select("header > h1")).to.equal("Domain-Driven Design");
       expect(select("header aside")).to.match(/\d+ min read./);
       expect(select("header dialog", "id")).to.equal("message");
     });
@@ -209,7 +209,7 @@ describe("check build output for a generic post", () => {
         const obj = JSON.parse(json);
         expect(obj.url).to.equal(POST_URL + ".html");
         expect(obj.description).to.equal(
-          "Strategic Domain driven Design for Visage with EventStorming, Domain Storytelling, Core Charts, Bounded Context Canvas."
+          "Strategic Domain-Driven Design for Visage with Event Storming, Domain Storytelling, Core Charts, Bounded Context Canvas."
         );
         expect(obj.image.length).to.be.greaterThan(0);
         obj.image.forEach((url, index) => {
