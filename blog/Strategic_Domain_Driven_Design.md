@@ -5,6 +5,7 @@ description: Strategic Domain-Driven Design for Visage with Event Storming, Doma
 image: /img/blog/Bounded_Context_Canvas.png
 tags:
   - blog
+category: Visage
 layout: layouts/post.njk
 ---
 A software project is akin to crossing familiar valleys to scale up a new mountain: maps are vital. And [Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design) does just that: it not only provides a 20000 feet view but also guides us along a pathway to flesh out our project.
