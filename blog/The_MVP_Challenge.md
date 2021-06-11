@@ -140,5 +140,9 @@ I was eager to undertake the Accessibility and Diversity module after attending 
 
 ![Ability Summit](../img/blog/AbilitySummit21.png)
 
+If you are a community organizer who has a M365 and an Azure subscription, then [my Microsoft Learning collection](https://docs.microsoft.com/en-us/users/augustinecorrea-4621/collections/7dr4u7g4e462j4) would be a great way for you ease into these technologies
+
+
+
 > We are putting our goals publicly so that you can hold us accountable when we next meet.
 > Stay safe. See you soon.
