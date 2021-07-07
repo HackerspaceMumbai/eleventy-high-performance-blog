@@ -23,7 +23,7 @@ During the lockdown, we had ample opportunities to examine how we have been orga
 
 ## \#TheMVPChallenge - Microsoft 365 Learning Path
 
-As an MVP, one of the benefits I enjoy is an M365 subscription which I have been exclusively using for our community activities for the last three years: Email invitation for upcoming events, informing registrants of their status, reminders for event guests and speakers, etc.
+As an MVP, one of the benefits I enjoy is an M365 subscription which I have been exclusively using for our community activities for the last three years: Email invitations for upcoming events, informing registrants of their status, reminders for event guests and speakers, etc.
 
 I just did the bare minimum configuration, got it working for our basic needs, and that was it.
 
@@ -91,11 +91,11 @@ This approach can help firms unlock values that are innovated within their enter
 
 ### Power Virtual Agents
 
-The #TheMVPChallenge learning path also nudged us to look at developing "Power Virtual Agents" to cater for the many questions [that are mostly repeated 😊] we get from volunteers at different venues across our events.
+The #TheMVPChallenge learning path also nudged us to look at developing "Power Virtual Agents" to cater to the many questions [that are mostly repeated 😊] we get from volunteers at different venues across our events.
 
 ### Power BI
 
-We will use Power BI to display metrics that are important for us but are missing from most event management tools like percentage of no-shows, acknowledgments lapses, et  c. The plan is to have BI metrics shown prominently in our Sharepoint communication site mentioned above.  
+We will use Power BI to display metrics important to us but are missing from most event management tools like percentage of no-shows, acknowledgments lapses, etc. The plan is to have BI metrics shown prominently in our Sharepoint communication site mentioned above.  
 
 ## Azure AI & Data Learning Path
 
@@ -115,7 +115,7 @@ Also, we need to know if a registrant will attend or not. And when I undertook t
 
 [Create a classification model with Azure Machine Learning designer - Learn | Microsoft Docs](https://docs.microsoft.com/en-us/learn/modules/create-regression-model-azure-machine-learning-designer/?WT.mc_id=AI-MVP-5003041)
 
-Next, we get a lot of queries from registrants throughout the process, before event registration opens up and even after the event ends. Most of these questions are of the same nature, and that's where the Azure Bot Service in the learning path will help to answer most of their queries.
+Next, we get repetitive queries from registrants throughout the process: before event registration opens up and even after the event ends. One session in the learning path, Azure Bot Service, may provide us a solution to this.
 
 [Build a bot with QnA Maker and Azure Bot Service - Learn | Microsoft Docs](https://docs.microsoft.com/en-us/learn/modules/build-faq-chatbot-qna-maker-azure-bot-service/?WT.mc_id=AI-MVP-5003041)
 
