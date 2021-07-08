@@ -75,7 +75,7 @@ MS Teams related modules form the backbone of my learning path collection
 
 Initially, venues will open up with physical distancing norms in effect. And crucially only for folks who are fully vaccinated [ie. 28 days post 2nd dose].
 
-As organizers of regularly houseful events, we need to drastically reduce no-shows and also verify the vaccination status of the guests. And till then, keep the show running virtually.
+As organizers of houseful events, we need to drastically reduce no-shows and also verify the vaccination status of the guests. And till then, keep the show running virtually.
 
 ### Power Apps & Power Automate
 
