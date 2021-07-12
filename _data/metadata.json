@@ -5,6 +5,7 @@
   "description": "Mumbai's largest Open Source OSS community",
   "genre": "Blog",
   "googleAnalyticsId": "UA-43044929-7",
+  "sendWebVitals": false,
   "feed": {
     "subtitle": "Hackerspace Mumbai Blog Feed",
     "filename": "feed.xml",

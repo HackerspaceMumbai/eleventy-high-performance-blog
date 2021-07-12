@@ -22,7 +22,6 @@
 const { promisify } = require("util");
 const exists = promisify(require("fs").exists);
 const sharp = require("sharp");
-const avif = require("./avif");
 const pathPrefixUtils = require("./pathPrefixUtilities");
 
 
@@ -38,18 +37,19 @@ const extension = {
   avif: "avif",
 };
 
+const quality = {
+  avif: 40,
+  default: 60,
+};
+
 module.exports = async function srcset(filename, format) {
   const names = await Promise.all(
     widths.map((w) => resize(filename, w, format))
   );
-
-  /**
-   * * Checking if pathprefix has been passed has an argument,
-   *   and if yes, inveigling it at the start of the srcset
-   */
-  if (pathPrefixUtils.hasPathPrefix())
-    return names.map((n, i) => `${pathPrefixUtils.getPathPrefix()}${n} ${widths[i]}w`).join(", ");
-  return names.map((n, i) => `${n} ${widths[i]}w`).join(", ");
+  return {
+    srcset: names.map((n, i) => `${pathPrefixUtils.getPathPrefix()} ${n} ${widths[i]}w`).join(", "),
+    fallback: names[0],
+  };
 };
 
 async function resize(filename, width, format) {
@@ -57,17 +57,14 @@ async function resize(filename, width, format) {
   if (await exists("_site" + out)) {
     return out;
   }
-  if (format == "avif") {
-    await avif("_site" + filename, "_site" + out, width);
-  } else {
-    await sharp("_site" + filename)
-      .resize(width)
+  await sharp("_site" + filename)
+    .rotate() // Manifest rotation from metadata
+    .resize(width)
     [format]({
-      quality: 60,
+      quality: quality[format] || quality.default,
       reductionEffort: 6,
     })
-      .toFile("_site" + out);
-  }
+    .toFile("_site" + out);
 
   return out;
 }

@@ -19,6 +19,11 @@ main img {
   content-visibility: auto;
 }
 
+/* Avoid the header hiding the content on anchor scroll. */
+article * {
+  scroll-margin-top: 50px;
+}
+
 /* "Content-visibility: auto" move the images over the other elements
    Set z-index to keep the nav over the rasterized images */
 header nav {
@@ -68,6 +73,7 @@ dialog {
   background-color: #8dff80;
   position: fixed;
   opacity: 0.9;
+  z-index: 1000;
 }
 
 img[align="left"] {
@@ -247,8 +253,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
   font-family: "Inter UI";
   font-style: italic;
   font-weight: 300;
-  src: url("/fonts/Inter-ThinItalic.woff2/fonts/Inter-LightItalic.woff2")
-      format("woff2"),
+  src: url("/fonts/Inter-LightItalic.woff2") format("woff2"),
     url("/fonts/Inter-LightItalic.woff") format("woff");
 }
 
@@ -806,7 +811,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Inter UI, sans-serif;
+  font-family: var(--font-family);
 }
 h2,
 h4,
@@ -848,10 +853,12 @@ dt {
 }
 html {
   font-family: Inter UI, sans-serif;
+  --font-family: Inter UI, sans-serif;
 }
 @supports (font-variation-settings: normal) {
   html {
     font-family: Inter UI var alt, sans-serif;
+    --font-family: Inter UI var alt, sans-serif;
   }
 }
 form {
@@ -994,11 +1001,12 @@ select[multiple] {
   border: 0;
   box-sizing: border-box;
 }
-img {
+img,
+video {
   max-width: 100%;
 }
 body {
-  font-family: Inter UI, sans-serif;
+  font-family: var(--font-family);
   background: #181818;
   color: #eee;
 }
@@ -1064,7 +1072,7 @@ header nav h1 {
 header nav a {
   font-weight: 700;
   text-decoration: none;
-  font-family: Inter UI, sans-serif;
+  font-family: var(--font-family);
   color: #181818;
   margin-left: 1.5em;
 }
@@ -1145,7 +1153,8 @@ blockquote footer {
   font-size: 90%;
   text-align: start;
 }
-img {
+img,
+video {
   height: auto;
   margin: 0 auto;
 }
