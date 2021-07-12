@@ -47,7 +47,7 @@ templateClass: tmpl-post
     "name": "{{ metadata.publisher.name }}",
     "logo": {
       "@type": "ImageObject",
-      "url": "{{ metadata.image.logo | url | addHash }}"
+      "url": "{{ '/img/favicon/favicon-192x192.png' | addHash }}"
     }
   },
   "url": "{{ metadata.url }}{{ canonicalUrl or page.url }}",
