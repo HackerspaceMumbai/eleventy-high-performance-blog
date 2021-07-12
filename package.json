@@ -18,9 +18,7 @@
     "test-watch: prefix": "mocha test/test*.js --watch --pathprefix=/blog",
     "clean": "rm -rf ./_site"
   },
-  "pre-push": [
-    "build:pathprefix"
-  ],
+
   "pre-commit": [],
   "repository": {
     "type": "git",
