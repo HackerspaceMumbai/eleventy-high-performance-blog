@@ -19,7 +19,7 @@
     "clean": "rm -rf ./_site"
   },
   "pre-push": [
-    "build"
+    "build:pathprefix"
   ],
   "pre-commit": [],
   "repository": {
