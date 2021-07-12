@@ -71,7 +71,7 @@ describe("check build output for a generic post", () => {
       let has_ga_id = GA_ID ? 1 : 0;
       expect(scripts).to.have.length(has_ga_id + 1); // NOTE: update this when adding more <script>
       expect(scripts[0].getAttribute("src")).to.match(
-        /^\/js\/min\.js\?hash=\w+/
+        /^\/blog\/js\/min\.js\?hash=\w+/
       );
     });
 
@@ -154,20 +154,20 @@ describe("check build output for a generic post", () => {
         const picture = pictures[0];
         const sources = Array.from(picture.querySelectorAll("source"));
         expect(sources).to.have.length(3);
-        expect(img.src).to.match(/^\/img\/remote\/\w+-1920w\.jpg$/);
+        expect(img.src).to.match(/^\/img\/blog\/\w+-1920w\.jpg$/);
         expect(metaImage).to.match(new RegExp(URL));
-        expect(metaImage).to.match(/\/img\/remote\/\w+\.jpg$/);
+        expect(metaImage).to.match(/\/img\/remote\/\w+\.png$/);
         const avif = sources.shift();
         const webp = sources.shift();
         const jpg = sources.shift();
         expect(jpg.srcset).to.match(
-          /\/img\/remote\/\w+-1920w.jpg 1920w, \/img\/remote\/\w+-1280w.jpg 1280w, \/img\/remote\/\w+-640w.jpg 640w, \/img\/remote\/\w+-320w.jpg 320w/
+          /\/img\/blog\/\w+-1920w.jpg 1920w, \/img\/blog\/\w+-1280w.jpg 1280w, \/img\/blog\/\w+-640w.jpg 640w, \/img\/blog\/\w+-320w.jpg 320w/
         );
         expect(webp.srcset).to.match(
-          /\/img\/remote\/\w+-1920w.webp 1920w, \/img\/remote\/\w+-1280w.webp 1280w, \/img\/remote\/\w+-640w.webp 640w, \/img\/remote\/\w+-320w.webp 320w/
+          /\/img\/blog\/\w+-1920w.webp 1920w, \/img\/blog\/\w+-1280w.webp 1280w, \/img\/blog\/\w+-640w.webp 640w, \/img\/blog\/\w+-320w.webp 320w/
         );
         expect(avif.srcset).to.match(
-          /\/img\/remote\/\w+-1920w.avif 1920w, \/img\/remote\/\w+-1280w.avif 1280w, \/img\/remote\/\w+-640w.avif 640w, \/img\/remote\/\w+-320w.avif 320w/
+          /\/img\/blog\/\w+-1920w.avif 1920w, \/img\/blog\/\w+-1280w.avif 1280w, \/img\/blog\/\w+-640w.avif 640w, \/img\/blog\/\w+-320w.avif 320w/
         );
         expect(jpg.type).to.equal("image/jpeg");
         expect(webp.type).to.equal("image/webp");

@@ -47,7 +47,7 @@ module.exports = async function srcset(filename, format) {
     widths.map((w) => resize(filename, w, format))
   );
   return {
-    srcset: names.map((n, i) => `${pathPrefixUtils.getPathPrefix()} ${n} ${widths[i]}w`).join(", "),
+    srcset: names.map((n, i) => `${n} ${widths[i]}w`).join(", "),
     fallback: names[0],
   };
 };
