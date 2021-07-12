@@ -35,7 +35,7 @@
       <meta property="og:image" content="{{ metadata.image.logo | url | absoluteUrl(metadata.url) }}">
     {% endif %}
 
-    {% if page.url.indexOf('blog') %}
+    {% if page.url and page.url.indexOf('blog') %}
       <meta property="og:type" content="article">
       <meta name="robots" content="index,follow" />
     {% else %}
