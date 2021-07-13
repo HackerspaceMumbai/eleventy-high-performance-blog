@@ -55,7 +55,7 @@
 
     <link rel="preconnect" href="/" crossorigin>
     <link rel="preconnect" href="https://img.youtube.com/" crossorigin />
-    <script async defer src="{{ "/js/min.js" | addHash | url }}">
+    <script async defer src="{{ "/js/min.js" | addHash }}">
             {% if webvitals %}data-cwv-src="{{ "/js/web-vitals.js" | addHash }}"{% endif %}>
     </script>
     {% if googleanalytics %}

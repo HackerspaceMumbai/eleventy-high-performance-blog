@@ -3,7 +3,7 @@
 
   # Allows overriding metadata.json via env var
 
-  command = "[ \"$METADATA_JSON\" ] && echo $METADATA_JSON > _data/metadata.json; npm run build"
+  command = "[ \"$METADATA_JSON\" ] && echo $METADATA_JSON > _data/metadata.json; npm run build:pathprefix"
   functions = "functions/"
 
 [[plugins]]
