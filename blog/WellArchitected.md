@@ -2,7 +2,7 @@
 title: A Well-Architected Cloud Application
 date: 2021-07-15
 description: Microsoft Learn Path for M365, Power Platform and, AI & Data 
-image: /img/blog/HM-Sharepoint.png
+image: /img/blog/VisageArchitecture_MVP.png
 tags:
   - blog
 category: Visage
