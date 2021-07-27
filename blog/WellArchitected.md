@@ -82,7 +82,7 @@ Let's ring up our resources on the calculator [[click here for the estimate](htt
 - With Key vault, we come to the first service not offered in any of the Azure regions in India, as per the Pricing Calculator. But its available in Central India region [bug ???]
   ![Key vault Pricing](/img/blog/KeyVault_Pricing.png)
 
-- For Azure Monitor, I have been liberal with the number of logs and metrics that are being captured because in the early days, you are trying to get familiar with your application. And this ties in with other pillars, which we will touch upon in forthcoming posts.
+- For Azure Monitor, I have been liberal with the number of logs and metrics that are being captured because during the early days, you are trying to get familiar with your application. And this ties in with other pillars, which we will touch upon in forthcoming posts.
   ![Azure Monitor Pricing](/img/blog/AzureMonitor_Pricing.png)
 
 - We have attached the excel estimate with the [Pricing Calculator user story](https://dev.azure.com/augcor/Visage/_boards/board/t/Visage%20Team/Stories/?workitem=123) and checked it in our git repository.
@@ -97,7 +97,7 @@ For the MVP iteration, we have created a budget of ₹2000, a buffer of ~18% ove
 
 ![Azure Budget Cost Alerts](/img/blog/AzureBudget_Alerts.png)
 
-At the end of the day, our items on our Azure Boards are "shifting right" -> its good news in project management.
+At the day's end, our items on our Azure Boards are "shifting right" -> its good news in project management.
 ![Azure Boards Post Budget](/img/blog/AzureDevBoard_PostBudget.png)
 
-In the upcoming blog posts, as we build our solution, we will dwell upon on how we are incorporating best practices from the other pillars too. Up next though, our blog post will be about UI wireframing and prototyping.
+In our upcoming blog posts, we will start incorporating best practices from other pillars into our solution. Up next, though, I will be leaving my comfort zone to dive into UI/UX wireframing and prototyping. Stay safe 💪.
