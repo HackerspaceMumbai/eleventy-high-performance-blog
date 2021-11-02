@@ -41,14 +41,14 @@ exports.gif2mp4 = async function (filename) {
     "-i",
     join("_site", filename),
     "-filter_complex",
-    "[0:v] fps=15, scale=iw:-2",
+    "[0:v] fps=15, scale=ceil(iw/2)*2:ceil(ih/2)*2",
     "-vsync",
     0,
     "-f",
     "mp4",
     "-pix_fmt",
     "yuv420p",
-    join("_site", dest),
+    join("_site", dest),    
   ]);
   try {
     await exec(command);

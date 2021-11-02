@@ -2,7 +2,7 @@
 title: A Well-Architected Cloud Application
 date: 2021-07-28
 description: Beginning Visage as a well-architected cloud application with cost optimization incl. budget & alerts 
-image: /img/blog/VisageArchitecture_MVP.png
+image: /img/blog/Visage_Architecture.png
 tags:
   - blog
 category: Visage
@@ -12,7 +12,7 @@ layout: layouts/post.njk
 
 > If **"World Peace"** is a beauty pageant contestant's most cliched answer, then **"Well-Architected"** is that of a cloud developer describing their app.
 
-An app to deliver business value at quality relies on code and infrastructure. Most cloud service providers, by now, have gathered a wealth of experience & expertise on how best to develop different types of applications on their infrastructure and have provided guidance accordingly. Azure et al have termed apps following these guidance as **"[well-architected](https://docs.microsoft.com/en-us/azure/architecture/framework/?WT.mc_id=AZ-MVP-5003041)"** and have been successful in providing a consistent experience for developers.
+An app to deliver business value at quality relies on code and infrastructure. Most cloud service providers, by now, have gathered a wealth of experience & expertise on how best to develop different types of applications on their infrastructure and have provided guidance accordingly. Azure et al. have termed apps following such guidance are termed as **"[well-architected](https://docs.microsoft.com/en-us/azure/architecture/framework/?WT.mc_id=AZ-MVP-5003041)"** and have been successful in providing a consistent experience for developers.
 
 ## The Smaller Picture
 
@@ -23,7 +23,7 @@ Right from our first [blog post](./Strategic_Domain_Driven_Design#big-picture-ev
 
 > In tech, of late, procrastination isn't that bad a thing - by me.
 
-While we were muddling through our design, the good folks at Microsoft had raced ahead to release [Azure Static Web Apps](https://azure.microsoft.com/en-in/services/app-service/static/?WT.mc_id=AZ-MVP-5003041). Incorporating Azure SWA would consolidate our frontend and API, reducing management overhead, and in the process, also save us a pretty penny. To celebrate the occasion, Azure held a virtual event, [Code to Scale](https://channel9.msdn.com/Events/Learn-TV/Static-Web-Apps-Code-to-Scale?WT.mc_id=AZ-MVP-5003041)[Some of the videos were great for diving into SWA]. And it was accompanied by a learning challenge, which I felt didn't build upon the sessions. For example, there were three mandatory modules on JS, Blazor, & Gatsby; a newbie would only be interested in only one[a choice would have been better]. Also missing were modules on local development with [Azure SWA CLI](https://techcommunity.microsoft.com/t5/apps-on-azure/introducing-the-azure-static-web-apps-cli/ba-p/2257581/?WT.mc_id=AZ-MVP-5003041) and E2E testing with [Playwright](https://docs.microsoft.com/en-us/microsoft-edge/playwright/?WT.mc_id=AZ-MVP-5003041). I have created a [MS Docs Learning Path for Azure SWA](https://docs.microsoft.com/en-us/users/augustinecorrea-4621/collections/6ew4a4m857q61g/?WT.mc_id=AZ-MVP-5003041), which I will be updating in the coming weeks as I find more modules that are useful for Blazor WASM based Azure SWA.
+While we were muddling through our design, the good folks at Microsoft had raced ahead to release [Azure Static Web Apps](https://azure.microsoft.com/en-in/services/app-service/static/?WT.mc_id=AZ-MVP-5003041). Incorporating Azure SWA would consolidate our frontend and API, reducing management overhead, and in the process, also save us a pretty penny. To celebrate the occasion, Azure held a virtual event, [Code to Scale](https://channel9.msdn.com/Events/Learn-TV/Static-Web-Apps-Code-to-Scale?WT.mc_id=AZ-MVP-5003041)[Some of the videos were great for diving into SWA]. And it was accompanied by a learning challenge, which I felt didn't quite build upon the sessions. For example, there were three mandatory modules on JS, Blazor, & Gatsby; a newbie would only be interested in only one[a choice would have been better]. Also missing were modules on local development with [Azure SWA CLI](https://techcommunity.microsoft.com/t5/apps-on-azure/introducing-the-azure-static-web-apps-cli/ba-p/2257581/?WT.mc_id=AZ-MVP-5003041) and E2E testing with [Playwright](https://docs.microsoft.com/en-us/microsoft-edge/playwright/?WT.mc_id=AZ-MVP-5003041). I have created a [MS Docs Learning Path for Azure SWA](https://docs.microsoft.com/en-us/users/augustinecorrea-4621/collections/6ew4a4m857q61g/?WT.mc_id=AZ-MVP-5003041), which I will be updating in the coming weeks as I find more modules that are useful for Blazor WASM based Azure SWA.
 
 For the 1st iteration ["MVP"](https://dev.azure.com/augcor/Visage/_sprints/backlog/Visage%20Team/Visage/MVP), our erstwhile Architecture diagram has slimmed down considerably.
 
@@ -49,16 +49,16 @@ Both [AWS](https://aws.amazon.com/architecture/well-architected/?wa-lens-whitepa
   4. Reliability
   5. Security, Privacy, and Compliance [Psst: Azure and AWS just went with security, but I did not want Google to feel left out, so I have used their nomenclature 😉]
 
-From a project management perspective, these pillars render themselves quite naturally as epics spanning throughout the product lifecycle. And that's how we roll with them on our [Azure Boards](https://azure.microsoft.com/en-in/services/devops/boards/?WT.mc_id=AZ-MVP-5003041).
+From a project management perspective, these pillars render themselves quite naturally as epics. And that's how we roll with them on our [Azure Boards](https://azure.microsoft.com/en-in/services/devops/boards/?WT.mc_id=AZ-MVP-5003041).
 
 [![Azure DevOps Boards Epics](/img/blog/epics_pillars_devops.png)](https://dev.azure.com/augcor/Visage/_workitems/recentlyupdated/?WT.mc_id=AZ-MVP-5003041)
 
 ### Cost Optimization
 
-Google has 4 principles because it clubs Performance with Cost Estimation. While most of us dream of driving a Ferrari, but as an Indian, [this car ad gets us](https://www.youtube.com/watch?v=akmpsx5F2-4), right to the last paise 😊. Right from the get-go, the desi in me, will ensure we keep a tight rein on the financial aspects of our cloud app. **Also, it provides Early Warning Signals [to borrow a financial term] for most Architectural issues.**
+Google has four principles because it clubs Performance with Cost Estimation. While most of us dream of driving a Ferrari, but as an Indian, [this car ad gets us](https://www.youtube.com/watch?v=akmpsx5F2-4), right to the last paise 😊 =>  my priority will be to keep a close watch on our cloud costs. Also, it provides **Early Warning Signals** [to borrow a financial term] for most Architectural issues.
 
 #### Pricing Calculator
-`
+
 Before we write a single line of code and deploy artifacts, we must know how much this will cost us. Azure provides a handy tool to do just that: [Azure pricing calculator](https://azure.microsoft.com/en-in/pricing/calculator/?WT.mc_id=AZ-MVP-5003041)
 
 > For cloud practitioners, architecture diagrams doubles up as a handy shopping list. - once again, by me.
@@ -95,7 +95,7 @@ For the MVP iteration, we have allocated a budget of ₹2000, a buffer of ~18% o
 
 ![Azure Budget Cost Alerts](/img/blog/AzureBudget_Alerts.png)
 
-At the day's end, our items on our Azure Boards are "shifting right" -> unlike in DevOps, this is good news in Project Management.
+At the day's end, our items on our Azure Boards are "shifting right" -> unlike in DevOps, good news in Project Management.
 ![Azure Boards Post Budget](/img/blog/AzureDevBoard_PostBudget.png)
 
 In our upcoming blog posts, we will start incorporating best practices from other pillars into our solution. Up next, though, I will be leaving my comfort zone to plunge into UI/UX wireframing and prototyping. Stay safe 💪.

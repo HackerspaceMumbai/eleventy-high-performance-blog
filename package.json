@@ -8,7 +8,7 @@
     "build:pathprefix": "npm run clean && npm run js-build && eleventy --pathprefix='/blog' && npm run test:pathprefix",
     "watch": "concurrently \"eleventy --serve \" \"npm run js-build-watch\" \"npm run test-watch\"",
     "watch:pathprefix": "concurrently \"eleventy --serve --pathprefix=\"/blog\" \" \"npm run js-build-watch\" \"npm run test-watch\"",
-    "serve": "eleventy --serve --pathprefix='/blog'",
+    "serve": "eleventy --serve",
     "js-build": "rollup -c rollup.config.js",
     "js-build-watch": "rollup -c rollup.config.js -w",
     "debug": "DEBUG=* eleventy && npm run test",

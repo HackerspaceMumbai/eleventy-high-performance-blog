@@ -1,7 +1,7 @@
 ---
 title: Powering Up Your MVP
 date: 2021-03-22
-description: Building your MVP using the Power
+description: Building your MVP using the Power Platform
 image: /img/blog/OData_lookup.png
 tags:
   - blog
