@@ -11,3 +11,8 @@
     [headers.values]
       Content-Type = "image/avif"
       Content-Disposition = "inline"
+
+[dev]
+[dev.https]
+certFile = "../../localhost.pem"
+keyFile = "../../localhost-key.pem"
