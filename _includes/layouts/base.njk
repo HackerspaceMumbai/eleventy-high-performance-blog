@@ -8,7 +8,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="{{ csp.regular | safe }}">
     {% if isdevelopment %}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     {% else %}
@@ -44,6 +43,7 @@
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
 
     <link rel="preconnect" href="/" crossorigin>
+    <link rel="preload" href="/fonts/Inter-3.19.var.woff2" as="font" type="font/woff2" crossorigin>
     <script async defer src="{{ "/js/min.js" | addHash }}"
       {% if webvitals %}data-cwv-src="{{ "/js/web-vitals.js" | addHash }}"{% endif %}>
     </script>
