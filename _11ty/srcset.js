@@ -35,6 +35,7 @@ const extension = {
   jpeg: "jpg",
   webp: "webp",
   avif: "avif",
+  png: "png",
 };
 
 const quality = {

@@ -7,6 +7,7 @@ const metadata = require("../_data/metadata.json");
 const pathPrefix = require("../_11ty/pathPrefixUtilities");
 const developmentMode = require("../_data/isdevelopment");
 const GA_ID = require("../_data/googleanalytics.js")();
+const { parseHeaders } = require("../_11ty/apply-csp");
 
 /**
  * These tests kind of suck and they are kind of useful.
@@ -16,13 +17,14 @@ const GA_ID = require("../_data/googleanalytics.js")();
  */
 describe("check build output for a generic post", () => {
   describe("sample post", () => {
-    const POST_FILENAME = "_site/blog/Strategic_Domain_Driven_Design.html";
+    const POST_PATH = "blog/strategic_domain_driven_design";
+    const POST_FILENAME = `_site${POST_PATH}Strategic_Domain_Driven_Design.html`;
     console.log("POST_FILENAME", POST_FILENAME)
     const URL = metadata.url;
-    const POST_URL = URL + "/blog/Strategic_Domain_Driven_Design";
+    const POST_URL = URL + POST_PATH
 
     if (!existsSync(POST_FILENAME)) {
-      it("WARNING skipping tests because POST_FILENAME does not exist", () => { });
+      it(`WARNING skipping tests because POST_FILENAME ${POST_FILENAME} does not exist`, () => { });
       return;
     }
 
@@ -96,12 +98,13 @@ describe("check build output for a generic post", () => {
     });
 
     it("should have a good CSP", () => {
-      const csp = select(
-        "meta[http-equiv='Content-Security-Policy']",
-        "content"
+      assert(existsSync("./_site/_headers"), "_header exists");
+      const headers = parseHeaders(
+        readFileSync("./_site/_headers", { encoding: "utf-8" })
       );
-      expect(csp).to.contain(";object-src 'none';");
-      expect(csp).to.match(/^default-src 'self';/);
+      POST_PATH;
+      expect(headers).to.have.key(POST_PATH);
+      expect(headers).to.have.key(`${POST_PATH}index.html`);
     });
 
     it("should have accessible buttons", () => {
