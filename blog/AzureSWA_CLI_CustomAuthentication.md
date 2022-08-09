@@ -1,7 +1,7 @@
 ---
-title: Azure Static Web App 
-date: 2021-11-06
-description: Deploying Blazor WASM onto Azure Static Web App and using Custom Authentication  
+title: Securing Azure Static Web App - Part 1
+date: 2021-11-24
+description: Deploying Blazor WASM onto Azure Static Web App with pre-configured Authentication provider  
 image: /img/blog/HM-Sharepoint.png
 tags:
   - blog
@@ -11,7 +11,9 @@ layout: layouts/post.njk
 
 For our 1st code commit, we will create the default Blazor WASM application on our local workstation, deploy it on to [Azure Static Web Apps](https://docs.microsoft.com/en-us/azure/static-web-apps/front-end-frameworks/?WT.mc_id=M365-MVP-5003041), and then use Custom Authentication to verify the IAM is working as intended on the frontend.
 
-Most of the work was done over the release candidate versions, [RC1](https://devblogs.microsoft.com/dotnet/announcing-net-6-release-candidate-1/) & [RC2](https://devblogs.microsoft.com/dotnet/announcing-net-6-release-candidate-2/?WT.mc_id=M365-MVP-5003041), but I have revalidated the codebase against the [LTS version of dotnet 6](https://devblogs.microsoft.com/dotnet/announcing-net-6/?WT.mc_id=M365-MVP-5003041) released yesterday.
+> The original blog post has been amended and is split into two since we were waiting on a fix for a bug on Azure SWA blade, for which we now have a workaround. For original versions, please refer to [Dev](https://dev.to/indcoder/securing-an-azure-static-web-app-with-auth0-actions-1om2), or [hashnode](https://indcoder.hashnode.dev/securing-an-azure-static-web-app-with-auth0-actions)
+
+Most of the work was done over the release candidate versions, [RC1](https://devblogs.microsoft.com/dotnet/announcing-net-6-release-candidate-1/) & [RC2](https://devblogs.microsoft.com/dotnet/announcing-net-6-release-candidate-2/?WT.mc_id=M365-MVP-5003041), but I have revalidated the codebase against the [LTS version of dotnet 6](https://devblogs.microsoft.com/dotnet/announcing-net-6/?WT.mc_id=M365-MVP-5003041) released during [.net Conf'21](https://devblogs.microsoft.com/dotnet/net-6-launches-at-net-conf-november-9-11/) .
 
 ## Local Development
 
