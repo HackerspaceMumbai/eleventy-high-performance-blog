@@ -1,17 +1,17 @@
 ---
-title: Securing Azure Static Web App - Part 1
+title: Securing a Blazor WASM app on Azure Static Web App - Part 1
 date: 2021-11-24
 description: Deploying Blazor WASM onto Azure Static Web App with pre-configured Authentication provider  
-image: /img/blog/HM-Sharepoint.png
+image: /img/blog/azureSWA_Auth0_cover_pic.png
 tags:
   - blog
 category: Visage
 layout: layouts/post.njk
 ---
 
-For our 1st code commit, we will create the default Blazor WASM application on our local workstation, deploy it on to [Azure Static Web Apps](https://docs.microsoft.com/en-us/azure/static-web-apps/front-end-frameworks/?WT.mc_id=M365-MVP-5003041), and then use Custom Authentication to verify the IAM is working as intended on the frontend.
+For our 1st code commit, we will create the default Blazor WASM application on our local workstation, deploy it on to [Azure Static Web Apps](https://docs.microsoft.com/en-us/azure/static-web-apps/front-end-frameworks/?WT.mc_id=M365-MVP-5003041), and then use a pre-approved Authentication Provider [GitHub] to verify that the IAM is working as intended on the frontend. In the subsequent post, we will replace it with a Custom Authentication Provider[Auth0].
 
-> The original blog post has been amended and is split into two since we were waiting on a fix for a bug on Azure SWA blade, for which we now have a workaround. For original versions, please refer to [Dev](https://dev.to/indcoder/securing-an-azure-static-web-app-with-auth0-actions-1om2), or [hashnode](https://indcoder.hashnode.dev/securing-an-azure-static-web-app-with-auth0-actions)
+> The original blog post has been amended and is split into two since we were waiting on a fix for a bug on Azure SWA blade, for which we now have a workaround. For original versions of this post, please refer to [Dev](https://dev.to/indcoder/securing-an-azure-static-web-app-with-auth0-actions-1om2), or [hashnode](https://indcoder.hashnode.dev/securing-an-azure-static-web-app-with-auth0-actions)
 
 Most of the work was done over the release candidate versions, [RC1](https://devblogs.microsoft.com/dotnet/announcing-net-6-release-candidate-1/) & [RC2](https://devblogs.microsoft.com/dotnet/announcing-net-6-release-candidate-2/?WT.mc_id=M365-MVP-5003041), but I have revalidated the codebase against the [LTS version of dotnet 6](https://devblogs.microsoft.com/dotnet/announcing-net-6/?WT.mc_id=M365-MVP-5003041) released during [.net Conf'21](https://devblogs.microsoft.com/dotnet/net-6-launches-at-net-conf-november-9-11/) .
 
@@ -148,7 +148,7 @@ By right-clicking on the Azure SWA project, you will be presented with a context
 
 ### Things that tripped me
 
-1. For folk from a TDD/BDD background who like to create an Azure SWA project first and then proceed to code, the extension does not work on an empty folder.
+1. For folks from a TDD/BDD background who like to create an Azure SWA project first and then proceed to code, the extension does not work on an empty folder.
   ![VS Code toast notification of error message of empty workspace](/img/blog/azureswa_extension_empty_workspace.png)
 
 2. Having said that, try to deploy your code asap. This project is not just our first project in Azure but also a re-entry into .net [coming from a 10-year Node.js background]. Tinkering with the generated .gitignore, I un-commented the below line [brain freeze on my part that I want to attribute to working with ASP pre-2012😉].
@@ -159,7 +159,7 @@ This led to an insidious error: the app worked fine on the local machine via SWA
   ![Azure SWA GitHub action fail by running on default Git branch](/img/blog/azureswa_github_action_default_branch.png)
 However, once the Azure SWA is created, the GitHub action works very well with other branches in powerful ways, which we will see in action during our next section.
 
-## Custom Authentication
+## Authentication
 
 Now that we have got our app up and running, let's secure it by ensuring that only authenticated users with the requisite role can access certain pages, just like any good self-respecting production web app out there.
 
@@ -238,7 +238,7 @@ git switch -c CustomAuth
 
 ### Pull Request in Pre-Production
 
-Great, now that we have corroborated on our workstation, the web app has a functioning IAM; let's validate it after deploying it on Azure.
+Great, now that we have corroborated, on our workstation, that the web app has a functioning IAM; let's validate it after deploying it on Azure.
 
 Push the branch to GitHub.
 
@@ -295,3 +295,100 @@ Push the changes to GitHub. Doing so, will once again trigger the GitHub Actions
 
 Yay, my Github profile has finally got access to the Weather Forecast page.
 ![Weather Forecast page on the Stage URL with GitHub user profile](/img/blog/azurswa_weather_forecast_role_change.png)
+
+## Finishing touches
+
+Before we wrap up, let's prepare our codebase for our next post on Custom Authentication.  
+
+### Custom Routing
+
+It's a good practice that the login link on our web pages has no reference to the authentication provider involved. And since we do not intend to use the other pre-configured providers[Twitter & Azure Active Directory], it's prudent from a security standpoint to have them disabled.
+
+You can control aspects of the Azure SWA via a JSON configuration file named staticwebapp.config.json. I like to create this file at the root of the Blazor WASM project.
+
+```json
+{
+  "routes": [
+    {
+      "route": "/login",
+      "rewrite": "/.auth/login/github"
+    },
+    {
+      "route": "/.auth/login/twitter",
+      "statusCode": 404
+    },
+    {
+        "route": "/.auth/login/aad",
+        "statusCode": 404
+    },
+
+    {
+      "route": "/logout",
+      "redirect": "/.auth/logout?post_logout_redirect_uri=/"
+    }
+  ]
+}
+```
+
+Startup the SWA CLI and replace the .auth links in MainLayout accordingly. You can see the hot reload in action too.
+Main layout with custom routes highlighted in red
+
+![VS Code with console output logging hot reload in actions](/img/blog/main_layout_custom_routes_hot_reload.png)
+
+Verify the change on your browser's dev tools.
+
+![SWA CLI rendered page with Edge Dev Tools opened and the Login link element's href attribute highlighted](/img/blog/swacli_custom_routes.png)
+
+Clicking on the Login link should bring you to the SWA CLI emulator. Rinse & repeat.
+
+### Secure Routes by Roles
+
+To be consistent with our code, we have to ensure that a direct request to the server for /fetchdata route of the Weather Forecast page is accessed only by authenticated users with the weathercaster role.
+
+```json
+{
+        "route": "/fetchdata",
+        "allowedRoles": ["weathercaster"]
+}
+```
+
+But, there's a caveat. Suppose we allow only folks with the role of "LordCount" to access the /counter route.
+
+```json
+{
+        "route": "/counter",
+        "allowedRoles": ["LordCount"]
+}
+```
+
+If there is an anonymous direct request to this route, then the platform will not serve the request.
+
+![SWA CLI emulator rendered a 401 page](/img/blog/counter_lordcount_role.png)
+
+But this does not prevent folks from accessing the route if the first request is to the index file [which is open to anonymous access]. It, in turn, ensures the whole WASM app gets loaded onto the user browser, and now anyone, including the unauthenticated, can access the counter page. [Y? The nature of the beast!!! Once a Single Page Application[SPA] is loaded onto the browser, the routes are traversed locally without invoking the Azure infrastructure]. And, unlike the fetchdata page, we have not secured the counter page via the Blazor Authorization implementation.
+
+![Counter page accessed with a Login link showing that page is open to anonymous access](/img/blog/counter_via_index.png)
+
+### Fallback Routes
+
+And because it's a SPA, we also need to serve those requests asked of the server for a route that does not adhere to any of the routing rules. [just like a default statement in a switch clause 😁]
+
+```json
+"navigationFallback": {
+      "rewrite": "/index.html"
+  }
+```
+
+We will be revisiting this file as we implement more features in the coming weeks. It is worth your while to familiarize yourself thoroughly with different aspects of the config file. During my research, I found that one of the reasons that the CSP for the global header was somewhat lax was because of the browser refresh feature, which, coincidentally I raised just before the meltdown caused by the Hot Reload announcement.
+
+## Conclusion
+
+What we accomplished in this blog post?
+
+- Created a Blazor WASM app on our local workstation.
+- Installed and used the Azure SWA CLI emulator to test the app locally.
+- Configured the app for authentication and authorization.
+- Validated via the SWA CLI the above IAM configuration on our local workstation.
+- Pushed our feature branch to GitHub, which was automatically deployed on Azure SWA via GitHub Actions.
+- A dedicated stage URL was created for us to test the feature of the app.
+- Refactored our code, and configured the Azure SWA on the Azure Portal to use the roles given to our GitHub profile.
