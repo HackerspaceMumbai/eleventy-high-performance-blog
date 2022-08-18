@@ -8,6 +8,16 @@ const originallowlist = []; // keep this empty and append domains to allowlist u
 // Update me.
 allowlistDomain("hackmum.in/");
 allowlistDomain("youtube.com/");
+allowlistDomain("netlify.app/");
+
+if (isDevelopmentMode()){
+  allowlistDomain("localhost:8888");
+}
+
+
+function isDevelopmentMode() {
+  return /serve|dev/.test(process.argv.join());
+}
 
 function allowlistDomain(domain, addWww = true) {
   const prefixes = ["https://", "http://"];
