@@ -103,7 +103,7 @@ exports.handler = function (event, context, callback) {
       ? origin
       : originallowlist[0],
     "Cache-Control": cacheControl,
-    "Access-Control-Allow-Credentials": true,
+    "Access-Control-Allow-Credentials": "true",
   };
 
   const done = () => {

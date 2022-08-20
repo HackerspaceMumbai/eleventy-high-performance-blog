@@ -9,7 +9,7 @@ category: Visage
 layout: layouts/post.njk
 ---
 
-In our [previous post](/azureswa_cli_customauthentication), we secured our Blazor WASM app, deployed on Azure Static Web App, with a pre-configured authentication provider, [GitHub](http://github.com/).
+In our [previous post](/blog/azureswa_cli_customauthentication), we secured our Blazor WASM app, deployed on Azure Static Web App, with a pre-configured authentication provider, [GitHub](http://github.com/).
 
 ## Change the Plan
 
