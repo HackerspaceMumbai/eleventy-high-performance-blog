@@ -18,10 +18,7 @@ if (isDev){
   allowlistDomain("localhost:8888");
 }
 
-
-function isDevelopmentMode() {
-  return /serve|dev/.test(process.argv.join());
-}
+console.log("originallowlist", originallowlist);
 
 function allowlistDomain(domain, addWww = true) {
   const prefixes = ["https://", "http://"];
