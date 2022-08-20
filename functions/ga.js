@@ -3,6 +3,8 @@ const querystring = require("querystring");
 
 const GA_ENDPOINT = `https://www.google-analytics.com/collect`;
 
+const isDev = require("../_data/isdevelopment")();
+
 // Domains to allowlist. Replace with your own!
 const originallowlist = []; // keep this empty and append domains to allowlist using allowlistDomain()
 // Update me.
@@ -10,7 +12,9 @@ allowlistDomain("hackmum.in/");
 allowlistDomain("youtube.com/");
 allowlistDomain("netlify.app/");
 
-if (isDevelopmentMode()){
+console.log(`The current environment is ${isDev ? "development" : "production"}`);
+
+if (isDev){
   allowlistDomain("localhost:8888");
 }
 
@@ -99,6 +103,7 @@ exports.handler = function (event, context, callback) {
       ? origin
       : originallowlist[0],
     "Cache-Control": cacheControl,
+    "Access-Control-Allow-Credentials": true,
   };
 
   const done = () => {
