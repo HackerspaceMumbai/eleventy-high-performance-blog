@@ -11,6 +11,7 @@ const originallowlist = []; // keep this empty and append domains to allowlist u
 allowlistDomain("hackmum.in/");
 allowlistDomain("youtube.com/");
 allowlistDomain("netlify.app/");
+allowlistDomain("*--hackmum.netlify.app/")
 
 console.log(`The current environment is ${isDev ? "development" : "production"}`);
 
