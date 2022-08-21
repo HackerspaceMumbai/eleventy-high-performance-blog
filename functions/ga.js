@@ -87,6 +87,8 @@ exports.handler = function (event, context, callback) {
   const origin = event.headers["origin"] || event.headers["Origin"] || "";
   console.log(`Received ${event.httpMethod} request from, origin: ${origin}`);
 
+  console.log(`originallowlist in export handler: ${originallowlist}`);
+
   const isOriginallowlisted = originallowlist.indexOf(origin) >= 0;
   if (!isOriginallowlisted) {
     console.info("Bad origin", origin);
