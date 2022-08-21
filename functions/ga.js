@@ -8,10 +8,10 @@ const isDev = require("../_data/isdevelopment")();
 // Domains to allowlist. Replace with your own!
 const originallowlist = []; // keep this empty and append domains to allowlist using allowlistDomain()
 // Update me.
-allowlistDomain("hackmum.in/");
-allowlistDomain("youtube.com/");
-allowlistDomain("netlify.app/");
-allowlistDomain("*--hackmum.netlify.app/")
+allowlistDomain("hackmum.in");
+allowlistDomain("youtube.com");
+allowlistDomain("netlify.app");
+allowlistDomain("*--hackmum.netlify.app")
 
 console.log(`The current environment is ${isDev ? "development" : "production"}`);
 
