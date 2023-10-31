@@ -14,5 +14,5 @@
 
 [dev]
 [dev.https]
-certFile = "../../localhost.pem"
-keyFile = "../../localhost-key.pem"
+certFile = "../localhost.pem"
+keyFile = "../localhost-key.pem"

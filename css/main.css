@@ -114,6 +114,19 @@ header aside {
   margin-bottom: 0.5em;
 }
 
+
+
+aside {
+  flex: auto;
+}
+
+#announcement {
+  margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
 /* https://github.com/rsms/inter/blob/master/LICENSE.txt
 
 Copyright (c) 2016-2020 The Inter Project Authors.
