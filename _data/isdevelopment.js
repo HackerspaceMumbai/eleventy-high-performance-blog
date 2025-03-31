@@ -20,6 +20,11 @@
  */
 
 module.exports = function () {
-  // YOLO.
-  return /serve|watch|dev/.test(process.argv.join());
+  // Check if the process is running in a production context
+  const isProduction = process.env.NODE_ENV === 'production' || /--prod|--context=production/.test(process.argv.join());
+  console.log("process.argv", process.argv);
+  console.log("isProduction", isProduction);
+
+  // Return true for development unless explicitly in production
+  return !isProduction && /serve|watch|dev/.test(process.argv.join());
 };

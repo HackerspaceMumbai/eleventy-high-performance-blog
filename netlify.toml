@@ -6,11 +6,16 @@
   command = "[ \"$METADATA_JSON\" ] && echo $METADATA_JSON > _data/metadata.json; npm run build-ci"
   functions = "functions/"
 
+[functions]
+  node_bundler = "esbuild" # Recommended for faster builds
+  environment = { NODE_VERSION = "22" }
+
 [[headers]]
   for = "*.avif"
     [headers.values]
       Content-Type = "image/avif"
       Content-Disposition = "inline"
+
 
 [dev]
 [dev.https]
