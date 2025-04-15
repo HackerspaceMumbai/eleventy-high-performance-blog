@@ -8,6 +8,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- See _data/csp.js for how to add to the CSP. 
+    Update me: Remove comment if you want a CSP.
+    <meta http-equiv="Content-Security-Policy" content="{{ csp.regular | safe }}">
+    -->
     {% if isdevelopment %}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     {% else %}
@@ -72,7 +76,7 @@
       <dialog id="message"></dialog>
       {% if googleanalytics %}
       <noscript>
-        <img src="/.netlify/functions/ga?v=1&_v=j83&t=pageview&dr=https%3A%2F%2Fno-script.com&_s=1&dh={{ metadata.domain | encodeURIComponent }}&dp={{ page.url | encodeURIComponent }}&ul=en-us&de=UTF-8&dt={{title|encodeURIComponent}}&tid={{googleanalytics}}" width="1" height="1"
+        <img src="/api/ga?v=1&_v=j83&t=pageview&dr=https%3A%2F%2Fno-script.com&_s=1&dh={{ metadata.domain | encodeURIComponent }}&dp={{ page.url | encodeURIComponent }}&ul=en-us&de=UTF-8&dt={{title|encodeURIComponent}}&tid={{googleanalytics}}" width="1" height="1"
         style="display:none" alt="">
       </noscript>
       {% endif %}

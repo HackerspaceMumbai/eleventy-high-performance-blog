@@ -8,6 +8,8 @@ Based on the awesome [eleventy-base-blog](https://github.com/11ty/eleventy-base-
 
 ## Demo
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fgoogle%2Feleventy-high-performance-blog)
+
 - [Demo](https://eleventy-high-performance-blog-sample.industrialempathy.com/)
 - [Original site this template was based on](https://www.industrialempathy.com/)
 
@@ -96,8 +98,8 @@ npm run build
 #### Miscellaneous
 
 - Immutable URLs for JS.
-- Sets immutable caching headers for images, fonts, and JS (CSS is inlined).
-- Minifies HTML and optimizes it for compression. Uses [html-minifier](https://www.npmjs.com/package/html-minifier) with aggressive options.
+- Sets immutable caching headers for images, fonts, and JS (CSS is inlined). Automatically configured when deploying on [Vercel](https://vercel.com/)
+- Uses [html-minifier](https://www.npmjs.com/package/html-minifier) with aggressive options.
 - Uses [rollup](https://rollupjs.org/) to bundle JS and minifies it with [terser](https://terser.org/).
 - Prefetches same-origin navigations when a navigation is likely.
 - If an AMP files is present, [optimizes it](https://amp.dev/documentation/guides-and-tutorials/optimize-and-measure/optimize_amp/).
@@ -109,7 +111,7 @@ npm run build
 
 #### Analytics
 
-- Supports locally serving Google Analytics's JS and proxying it's hit requests to a serverless function proxy (other proxies could be easily added).
+- Supports locally serving Google Analytics's JS and proxying it's hit requests to a Vercel Edge Function (other proxies could be easily added).
 - Supports sending [Core Web Vitals](https://web.dev/vitals/) metrics to Google Analytics as [events](https://github.com/GoogleChrome/web-vitals#send-the-results-to-google-analytics).
 - Support for noscript hit requests.
 - Avoids blocking onload on analytics requests.
@@ -138,7 +140,7 @@ npm run build
 
 ### Security
 
-Generates a strong [Content-Security-Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) using HTTP headers.
+Generates a strong [Content-Security-Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) for the base template.
 
 - Default-src is self.
 - Disallows plugins.
